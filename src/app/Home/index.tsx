@@ -1,8 +1,11 @@
 import { View, Image, TouchableOpacity, Text } from 'react-native';
-import { styles } from './styles';
+
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 import { Filter } from '@/components/Filter';
+import { Item } from '@/components/Item';
+
+import { styles } from './styles';
 import { FilterStatus } from '@/types/FilterStatus';
 
 const FILTER_STATUS: FilterStatus[] = [
@@ -30,6 +33,11 @@ export function Home() {
             <Text style={styles.clearText}>Limpar</Text>
           </TouchableOpacity>
         </View>
+
+        <Item data={{ status: FilterStatus.DONE, description: "Comprar leite" }} 
+          onStatus={() => {console.log("Mudar status")}}
+          onRemove={() => {console.log("Remover item")}}
+        />
       </View>
     </View>
   );
