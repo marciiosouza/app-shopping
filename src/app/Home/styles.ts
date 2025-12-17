@@ -41,6 +41,12 @@ export const styles = StyleSheet.create({
   clearText: {
     fontSize: 12,
     color: "#828282",
-    fontWeight: 600
+    fontWeight: 600,
+  },
+  separator: {
+    width: "100%",
+    height: 1,
+    backgroundColor: "#EEF0F5",
+    marginVertical: 16,
   }
 });

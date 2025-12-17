@@ -1,16 +1,31 @@
-import { View, Image, TouchableOpacity, Text } from 'react-native';
+import { View, Image, TouchableOpacity, Text, FlatList } from "react-native";
 
-import { Button } from '@/components/Button';
-import { Input } from '@/components/Input';
-import { Filter } from '@/components/Filter';
-import { Item } from '@/components/Item';
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
+import { Filter } from "@/components/Filter";
+import { Item } from "@/components/Item";
 
-import { styles } from './styles';
-import { FilterStatus } from '@/types/FilterStatus';
+import { styles } from "./styles";
+import { FilterStatus } from "@/types/FilterStatus";
 
-const FILTER_STATUS: FilterStatus[] = [
-  FilterStatus.PEDDING,
-  FilterStatus.DONE,
+const FILTER_STATUS: FilterStatus[] = [FilterStatus.PEDDING, FilterStatus.DONE];
+
+const ITEMS = [
+  {
+    id: "1",
+    status: FilterStatus.DONE,
+    description: "01 - Caixa de Leite",
+  },
+  {
+    id: "2",
+    status: FilterStatus.PEDDING,
+    description: "04 - Pacotes de macarrão",
+  },
+  {
+    id: "3",
+    status: FilterStatus.PEDDING,
+    description: "01 - litro de óleo de soja ",
+  },
 ];
 
 export function Home() {
@@ -34,10 +49,23 @@ export function Home() {
           </TouchableOpacity>
         </View>
 
-        <Item data={{ status: FilterStatus.DONE, description: "Comprar leite" }} 
-          onStatus={() => {console.log("Mudar status")}}
-          onRemove={() => {console.log("Remover item")}}
-        />
+        <FlatList
+          data={ITEMS}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Item
+              data={item}
+              onStatus={() => {
+                console.log("Mudar status");
+              }}
+              onRemove={() => {
+                console.log("Remover item");
+              }}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+          ItemSeparatorComponent={() => <View style={styles.separator} />}
+        ></FlatList>
       </View>
     </View>
   );
