@@ -65,6 +65,8 @@ export function Home() {
           )}
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
+          contentContainerStyle={styles.listContent}
+          ListEmptyComponent={() => <Text style={styles.empty}>Nenhum item encontrado.</Text>}
         ></FlatList>
       </View>
     </View>

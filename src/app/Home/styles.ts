@@ -48,5 +48,13 @@ export const styles = StyleSheet.create({
     height: 1,
     backgroundColor: "#EEF0F5",
     marginVertical: 16,
-  }
+  },
+  listContent: {
+    paddingTop: 16,
+    paddingBottom: 62,
+  },
+  empty: {
+    fontSize: 14,
+    color: "#808080",
+  textAlign: "center",}
 });
